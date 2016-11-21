@@ -1,39 +1,78 @@
-# Shikigami
+# shikigami / 式神
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/shikigami`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Work in progress. View helpers to make it even more easier to create basic CRUD apps with bootstrap.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'shikigami'
+```
+gem "shikigami"
 ```
 
 And then execute:
 
     $ bundle
+    
+## locale file
 
-Or install it yourself as:
+I should make a generator for this but in the meantime, you will need to have these information in your locale file:
 
-    $ gem install shikigami
+```
+zh-TW:
+  shikigami:
+    actions:
+      new: 新增
+      edit: 修改
+      show: 檢視
+      destroy: 刪除
+
+    confirm:
+      destroy: 確認要刪除？
+
+    warnings:
+      no_data: 尚無資料
+```
+
 
 ## Usage
 
-TODO: Write usage instructions here
+### no\_data\_alert
 
-## Development
+Generates the following HTML:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```
+# no_data_alert()
+<div class="alert alert-warning">尚無資料</div>
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### bootstrap\_dropdown\_title
 
-## Contributing
+Generates the following HTML. `bs_dd_title` for short. Yeah, I'm lazy.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/shikigami.
+```
+# bootstrap_dropdown_title("something")
+<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">something<span class="caret"></span></a>
+```
 
+### bootstrap\_button
+
+Generates a bootstrap button style link. `bs_btn`
+ for short.
+ 
+```
+# bs_btn(:edit, "#")
+<a class="btn btn-xs btn-warning" href="#">修改</a>
+```
+
+By default, shikigami generated buttons will be sized as `.btn-xs`. Unless specified otherwise, it will use `.btn-info` for `show` actions, `.btn-warning` for `edit` actions, and `.btn-danger` for `destroy` actions. 
+
+You can also pass in methods and confirmation:
+
+```
+# bs_btn(:destroy, "#", method: :delete, confirm: true)
+<a class="btn btn-xs btn-danger" data-confirm="確認要刪除？" rel="nofollow" data-method="delete" href="#">刪除</a>
+```
 
 ## License
 

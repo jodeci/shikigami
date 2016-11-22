@@ -46,12 +46,12 @@ Generates the following HTML:
 <div class="alert alert-warning">尚無資料</div>
 ```
 
-### bootstrap\_dropdown\_title
+### bootstrap\_dropdown\_toggle
 
-Generates the following HTML. `bs_dd_title` for short. Yeah, I'm lazy.
+Generates the following HTML. `bs_dd_toggle` for short. Yeah, I'm lazy.
 
 ```
-# bootstrap_dropdown_title("something")
+# bootstrap_dropdown_toggle("something")
 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">something<span class="caret"></span></a>
 ```
 

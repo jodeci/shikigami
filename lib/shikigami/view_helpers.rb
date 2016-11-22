@@ -1,12 +1,12 @@
 module Shikigami
   module ViewHelpers
-    def bootstrap_dropdown_title(title)
-      content_tag :a, bootstrap_dropdown_title_hash do
+    def bootstrap_dropdown_toggle(title)
+      content_tag :a, bootstrap_dropdown_toggle_hash do
         concat title
         concat content_tag :span, nil, class: "caret"
       end
     end
-    alias_method :bs_dd_title, :bootstrap_dropdown_title
+    alias_method :bs_dd_toggle, :bootstrap_dropdown_toggle
 
     def bootstrap_button(action, path, options = {})
       btn_options = {}
@@ -38,7 +38,7 @@ module Shikigami
       end
     end
 
-    def bootstrap_dropdown_title_hash
+    def bootstrap_dropdown_toggle_hash
       {
         "class": "dropdown-toggle",
         "data-toggle": "dropdown",

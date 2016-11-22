@@ -25,9 +25,9 @@ describe Shikigami::ViewHelpers do
     end
   end
 
-  describe "#bootsrap_dropdown_title" do
+  describe "#bootsrap_dropdown_toggle" do
     it "should generate the correct html" do
-      expect(@helper.bs_dd_title("something")).to eq "<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">something<span class=\"caret\"></span></a>"
+      expect(@helper.bs_dd_toggle("something")).to eq "<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">something<span class=\"caret\"></span></a>"
     end
   end
 

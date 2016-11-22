@@ -12,12 +12,12 @@ module Shikigami
       btn_options = {}
       btn_options[:class] = bootstrap_button_class(action, options)
       btn_options[:method] = options[:method] if options[:method]
-      btn_options[:data] = { confirm: t("shikigami.confirm.#{action}") } if options[:confirm]
-      link_to t("shikigami.actions.#{action}"), path, btn_options
+      btn_options[:data] = { confirm: t("confirm.#{action}") } if options[:confirm]
+      link_to t("actions.#{action}"), path, btn_options
     end
     alias_method :bs_btn, :bootstrap_button
 
-    def no_data_alert(message = t("shikigami.warnings.no_data"))
+    def no_data_alert(message = t("warnings.no_data"))
       content_tag :div, message, class: "alert alert-warning"
     end
 

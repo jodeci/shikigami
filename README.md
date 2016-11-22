@@ -20,18 +20,17 @@ I should make a generator for this but in the meantime, you will need to have th
 
 ```
 zh-TW:
-  shikigami:
-    actions:
-      new: 新增
-      edit: 修改
-      show: 檢視
-      destroy: 刪除
+  actions:
+    new: 新增
+    edit: 修改
+    show: 檢視
+    destroy: 刪除
 
-    confirm:
-      destroy: 確認要刪除？
+  confirm:
+    destroy: 確認要刪除？
 
-    warnings:
-      no_data: 尚無資料
+  warnings:
+    no_data: 尚無資料
 ```
 
 

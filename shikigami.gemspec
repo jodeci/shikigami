@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version = Shikigami::VERSION
   spec.date = "2016-11-21"
   spec.description = "very early devlopment, use at own risk XD"
-  spec.summary = "boostrap html helpers for simple CRUD apps and lazy devs"
+  spec.summary = "making CRUD apps as brain dead easy as possible"
   spec.authors = ["Tsehau Chao"]
   spec.email = ["jodeci@5xruby.tw"]
   spec.homepage = "https://github.com/jodeci/shikigami"

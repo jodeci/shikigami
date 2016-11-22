@@ -1,6 +1,6 @@
 # shikigami / 式神
 
-Work in progress. View helpers to make it even more easier to create basic CRUD apps with bootstrap.
+*shikigami* is meant to make creating basic CRUD Rails apps as brain dead easy as possible.
 
 ## Installation
 
@@ -12,14 +12,19 @@ gem "shikigami"
 
 And then execute:
 
-    $ bundle
-    
-## locale file
+```
+$ bundle install
+```
 
-I should make a generator for this but in the meantime, you will need to have these information in your locale file:
+*shikigami* utilizes the I18n library and you will need to have these information in your locale file:
 
 ```
 zh-TW:
+  success:
+    create: 新建資料成功
+    update: 修改資料成功
+    destroy: 刪除資料成功
+
   actions:
     new: 新增
     edit: 修改
@@ -33,15 +38,56 @@ zh-TW:
     no_data: 尚無資料
 ```
 
+Or, just let *shikigami* generate the locale file for you:
+
+```
+$ rails generate shikigami:install
+``` 
+
+*shikigami* also assumes that you use [Kaminari](https://github.com/amatsuda/kaminari) for pagination and bootstrap for layout.
+
+Tested with Rails 5 and Ruby 2.3.
 
 ## Usage
+
+*Original credit goes to [@ryudoawaru](https://github.com/ryudoawaru). I've been using this almost everywhere, with some tweaks of my own, so I figured I'd might as well put together a gem.*
+
+*shikigami* provides an abstract controller to handle CRUD actions in `Shikigami::BaseController`. Simply inherit your controllers from *shikigami*, specify the relevant `current_scope` and `resource_params`, and you're done. *shikigami* will do the remaining boring stuff for you.
+
+```
+# all set!
+class BooksController < Shikigami::BaseController
+  def current_scope
+    Book
+  end
+  
+  def resource_params
+    parms.require(:book).permit(:title, :author)
+  end
+end
+```
+
+Then, in your view, just use `current_collection` or `current_object` to access your data.
+
+```
+# app/views/books/show.html.slim
+h1 = current_object.title
+
+# app/views/books/index.html.slim
+- current_collection.each do |item|
+  = item.title
+```
+
+Obviously, *shikigami* is only meant for the most basic CRUD Rails apps. If you need something more fancy, you shouldn't be using it :p
+
+## View Helpers
 
 ### no\_data\_alert
 
 Generates the following HTML:
 
 ```
-# no_data_alert()
+# no_data_alert
 <div class="alert alert-warning">尚無資料</div>
 ```
 
@@ -64,7 +110,7 @@ Generates a bootstrap button style link. `bs_btn`
 <a class="btn btn-xs btn-warning" href="#">修改</a>
 ```
 
-By default, shikigami generated buttons will be sized as `.btn-xs`. Unless specified otherwise, it will use `.btn-info` for `show` actions, `.btn-warning` for `edit` actions, and `.btn-danger` for `destroy` actions. 
+By default, *shikigami* generated buttons will be sized as `.btn-xs`. Unless specified otherwise, it will use `.btn-info` for `show` actions, `.btn-warning` for `edit` actions, and `.btn-danger` for `destroy` actions. 
 
 You can also pass in methods and confirmation:
 

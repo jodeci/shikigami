@@ -12,7 +12,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Tsehau Chao"]
   spec.email = ["jodeci@5xruby.tw"]
   spec.homepage = "https://github.com/jodeci/shikigami"
-  spec.files = Dir["lib/**/*"]
+  #spec.files = Dir["lib/**/*"]
+  spec.files = `git ls-files`.split("\n")
   spec.license = "MIT"
 
   spec.add_development_dependency "bundler", "~> 1.13"

@@ -1,4 +1,9 @@
 zh-TW:
+  success:
+    create: 新建資料成功
+    update: 修改資料成功
+    destroy: 刪除資料成功
+
   actions:
     new: 新增
     edit: 修改

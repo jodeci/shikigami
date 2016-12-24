@@ -1,11 +1,13 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Specify your gem's dependencies in shikigami.gemspec
 gemspec
 
-group :test do
+group :test, :development do
   gem "rails", "~> 5.0.0"
   gem "rails-controller-testing"
+  gem "rspec"
+  gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner"
   gem "sqlite3"

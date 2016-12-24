@@ -7,4 +7,4 @@ addons:
     code_climate:
         repo_token: b4f94f5e364202377b0a20c4355568b67fdd03f1b4c304a499eb1be96c2dae87
 script:
-  - bundle exec rspec spec --format documentation
+  - bundle exec rspec spec

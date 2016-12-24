@@ -6,4 +6,6 @@ gemspec
 group :test do
   gem "rails", "~> 5.0.0"
   gem "rails-controller-testing"
+  gem "factory_girl_rails"
+  gem "database_cleaner"
 end

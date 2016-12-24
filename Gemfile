@@ -8,4 +8,7 @@ group :test do
   gem "rails-controller-testing"
   gem "factory_girl_rails"
   gem "database_cleaner"
+  gem "sqlite3"
+  gem "kaminari"
+  gem "shoulda-matchers"
 end

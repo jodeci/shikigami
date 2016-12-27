@@ -1,5 +1,8 @@
 # shikigami / 式神
 
+[![Code Climate](https://codeclimate.com/github/jodeci/shikigami/badges/gpa.svg)](https://codeclimate.com/github/jodeci/shikigami)
+<a href="https://codeclimate.com/github/jodeci/shikigami/coverage"><img src="https://codeclimate.com/github/jodeci/shikigami/badges/coverage.svg" /></a>
+
 *shikigami* is meant to make creating basic CRUD Rails apps as brain dead easy as possible.
 
 ## Installation
@@ -122,4 +125,3 @@ You can also pass in methods and confirmation:
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

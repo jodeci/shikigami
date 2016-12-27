@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Shikigami
   class BaseController < ApplicationController
     helper_method :current_collection, :current_object

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Shikigami
   module ViewHelpers
     def bootstrap_dropdown_toggle(title)
@@ -6,7 +7,7 @@ module Shikigami
         concat content_tag :span, nil, class: "caret"
       end
     end
-    alias_method :bs_dd_toggle, :bootstrap_dropdown_toggle
+    alias bs_dd_toggle bootstrap_dropdown_toggle
 
     def bootstrap_button(action, path, options = {})
       btn_options = {}
@@ -15,7 +16,7 @@ module Shikigami
       btn_options[:data] = { confirm: t("confirm.#{action}") } if options[:confirm]
       link_to t("actions.#{action}"), path, btn_options
     end
-    alias_method :bs_btn, :bootstrap_button
+    alias bs_btn bootstrap_button
 
     def no_data_alert(message = t("warnings.no_data"))
       content_tag :div, message, class: "alert alert-warning"
@@ -44,7 +45,7 @@ module Shikigami
         "data-toggle": "dropdown",
         "role": "button",
         "aria-haspopup": "true",
-        "aria-expanded": "false"
+        "aria-expanded": "false",
       }
     end
   end

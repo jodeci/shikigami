@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 require "rails_helper"
+
 describe BooksController, type: :controller do
   before do
     FactoryGirl.create_list :book, 5
@@ -21,7 +23,7 @@ describe BooksController, type: :controller do
   end
 
   describe "GET index" do
-    before { get :index, page: 1 }
+    before { get :index, params: { page: 1 } }
 
     describe "#current_collection" do
       it { expect(current_collection).to be_a(Book::ActiveRecord_Relation) }
@@ -40,7 +42,7 @@ describe BooksController, type: :controller do
   describe "GET show" do
     describe "#current_object" do
       it do
-        get :show, id: book.id
+        get :show, params: { id: book.id }
         expect(current_object).to eq(book)
       end
     end
@@ -49,7 +51,7 @@ describe BooksController, type: :controller do
   describe "GET edit" do
     describe "#current_object" do
       it do
-        get :edit, id: book.id
+        get :edit, params: { id: book.id }
         expect(current_object).to eq(book)
       end
     end
@@ -58,7 +60,7 @@ describe BooksController, type: :controller do
   describe "PUT update" do
     context "when valid" do
       before do
-        put :update, id: book.id, book: valid_params
+        put :update, params: { id: book.id, book: valid_params }
         book.reload
       end
 
@@ -76,7 +78,7 @@ describe BooksController, type: :controller do
 
     context "when invalid" do
       before do
-        put :update, id: book.id, book: invalid_params
+        put :update, params: { id: book.id, book: invalid_params }
         book.reload
       end
 
@@ -103,18 +105,18 @@ describe BooksController, type: :controller do
     end
 
     context "when valid" do
-      it { expect { post :create, book: valid_params }.to change(Book, :count).by(1) }
+      it { expect { post :create, params: { book: valid_params } }.to change(Book, :count).by(1) }
       describe do
-        before { post :create, book: valid_params }
+        before { post :create, params: { book: valid_params } }
         it { expect(response).to redirect_to(action: :edit, id: current_object.id) }
         it { expect(flash[:success]).to eq I18n.t("success.create") }
       end
     end
 
     context "when invalid" do
-      it { expect { post :create, book: invalid_params }.to change(Book, :count).by(0) }
+      it { expect { post :create, params: { book: invalid_params } }.to change(Book, :count).by(0) }
       describe do
-        before { post :create, book: invalid_params }
+        before { post :create, params: { book: invalid_params } }
         it { expect(response).to render_template(:new) }
       end
     end
@@ -122,16 +124,16 @@ describe BooksController, type: :controller do
 
   describe "DELETE destroy" do
     context "when valid" do
-      it { expect { delete :destroy, id: book.id }.to change(Book, :count).by(-1) }
+      it { expect { delete :destroy, params: { id: book.id } }.to change(Book, :count).by(-1) }
       describe do
-        before { delete :destroy, id: book.id }
+        before { delete :destroy, params: { id: book.id } }
         it { expect(response).to redirect_to(action: :index) }
         it { expect(flash[:success]).to eq I18n.t("success.destroy") }
       end
     end
 
     context "when invalid" do
-      it { expect { delete :destroy, id: "invalid" }.to raise_error(ActiveRecord::RecordNotFound) }
+      it { expect { delete :destroy, params: { id: "invalid" } }.to raise_error(ActiveRecord::RecordNotFound) }
     end
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "rails/all"
 require "rspec/rails"
 require "shoulda-matchers"
@@ -6,9 +7,9 @@ require "spec_helper"
 
 RSpec.configure do |config|
   [:controller, :view, :request].each do |type|
-    config.include ::Rails::Controller::Testing::TestProcess, :type => type
-    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
-    config.include ::Rails::Controller::Testing::Integration, :type => type
+    config.include ::Rails::Controller::Testing::TestProcess, type: type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, type: type
+    config.include ::Rails::Controller::Testing::Integration, type: type
   end
 
   config.include FactoryGirl::Syntax::Methods
@@ -25,7 +26,7 @@ RSpec.configure do |config|
   end
 end
 
-FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+FactoryGirl.definition_file_paths = [File.expand_path("../factories", __FILE__)]
 FactoryGirl.find_definitions
 
 Shoulda::Matchers.configure do |config|

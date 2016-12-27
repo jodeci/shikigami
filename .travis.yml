@@ -1,4 +1,5 @@
 sudo: false
+cache: bundler
 language: ruby
 rvm:
   - 2.3.1
@@ -8,7 +9,7 @@ addons:
         repo_token: b4f94f5e364202377b0a20c4355568b67fdd03f1b4c304a499eb1be96c2dae87
 script:
   - bin/rake -f spec/dummy/Rakefile db:migrate
-  - bin/rake rspec spec --format documentation
+  - bin/rspec spec --format documentation
 
 after_success:
   - bundle exec codeclimate-test-reporter

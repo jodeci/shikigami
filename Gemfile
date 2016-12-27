@@ -11,6 +11,10 @@ group :test, :development do
   gem "factory_girl_rails"
   gem "database_cleaner"
   gem "sqlite3"
-  gem "kaminari"
   gem "shoulda-matchers"
+end
+
+group :test do
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end

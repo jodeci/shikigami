@@ -9,3 +9,6 @@ addons:
 script:
   - bundle exec rake -f spec/dummy/Rakefile db:migrate
   - bundle exec rspec spec --format documentation
+
+after_success:
+  - bundle exec codeclimate-test-reporter

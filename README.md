@@ -1,7 +1,8 @@
 # shikigami / 式神
-
+[![Gem Version](https://badge.fury.io/rb/shikigami.svg)](https://badge.fury.io/rb/shikigami)
 [![Code Climate](https://codeclimate.com/github/jodeci/shikigami/badges/gpa.svg)](https://codeclimate.com/github/jodeci/shikigami)
-<a href="https://codeclimate.com/github/jodeci/shikigami/coverage"><img src="https://codeclimate.com/github/jodeci/shikigami/badges/coverage.svg" /></a>
+[![Test Coverage](https://codeclimate.com/github/jodeci/shikigami/badges/coverage.svg)](https://codeclimate.com/github/jodeci/shikigami/coverage)
+[![Build Status](https://travis-ci.org/jodeci/shikigami.svg?branch=master)](https://travis-ci.org/jodeci/shikigami)
 
 *shikigami* is meant to make creating basic CRUD Rails apps as brain dead easy as possible.
 

@@ -4,6 +4,8 @@ source "https://rubygems.org"
 gemspec
 
 group :test, :development do
+  gem "bundler"
+  gem "rake"
   gem "rails", "~> 5.0.1"
   gem "rails-controller-testing"
   gem "rspec"

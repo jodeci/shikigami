@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require "bundler/setup"
 require "rails/all"
 require "rspec/rails"
 require "shoulda-matchers"

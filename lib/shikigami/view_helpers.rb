@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "shikigami/bootstrap_button"
 module Shikigami
   module ViewHelpers
     def bootstrap_dropdown_toggle(title)
@@ -10,11 +11,8 @@ module Shikigami
     alias bs_dd_toggle bootstrap_dropdown_toggle
 
     def bootstrap_button(action, path, options = {})
-      btn_options = {}
-      btn_options[:class] = bootstrap_button_class(action, options)
-      btn_options[:method] = options[:method] if options[:method]
-      btn_options[:data] = { confirm: t("confirm.#{action}") } if options[:confirm]
-      link_to t("actions.#{action}"), path, btn_options
+      button = Shikigami::BootstrapButton.new(action, options)
+      link_to t("actions.#{action}"), path, button.options
     end
     alias bs_btn bootstrap_button
 
@@ -23,21 +21,6 @@ module Shikigami
     end
 
     private
-
-    def bootstrap_button_class(action, options = {})
-      size = options[:size] ? options[:size] : "xs"
-      style = options[:style] ? options[:style] : bootstrap_button_style(action)
-      "btn btn-#{size} btn-#{style}"
-    end
-
-    def bootstrap_button_style(action)
-      case action.to_s
-      when "show" then "info"
-      when "edit" then "warning"
-      when "destroy" then "danger"
-      else "primary"
-      end
-    end
 
     def bootstrap_dropdown_toggle_hash
       {

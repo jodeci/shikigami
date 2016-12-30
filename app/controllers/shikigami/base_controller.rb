@@ -31,9 +31,9 @@ module Shikigami
       if current_object.update(resource_params)
         action_success
       else
-        respond_to do |f|
-          f.html { return render action: :edit }
-          f.json
+        respond_to do |format|
+          format.html { return render action: :edit }
+          format.json
         end
       end
     end
@@ -41,12 +41,12 @@ module Shikigami
     private
 
     def action_success
-      respond_to do |f|
-        f.html do
+      respond_to do |format|
+        format.html do
           flash[:success] ||= t("success.#{action_name}")
           redirect_to send("url_after_#{action_name}")
         end
-        f.json
+        format.json
       end
     end
 

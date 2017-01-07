@@ -6,7 +6,9 @@ zh-TW:
 
   actions:
     new: 新增
+    create: 新增
     edit: 修改
+    update: 修改
     show: 檢視
     destroy: 刪除 
 

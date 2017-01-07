@@ -31,7 +31,9 @@ module Shikigami
     end
 
     def default_message
-      I18n.t("confirm.#{@action}")
+      I18n.t("confirm.#{@action}", raise: true)
+    rescue
+      "Are you sure?"
     end
 
     def default_class

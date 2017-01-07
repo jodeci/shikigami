@@ -1,6 +1,4 @@
 source "https://rubygems.org"
-
-# Specify your gem's dependencies in shikigami.gemspec
 gemspec
 
 group :test, :development do

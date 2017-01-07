@@ -2,8 +2,8 @@
 require "rails/all"
 require "rspec/rails"
 require "shoulda-matchers"
-require "dummy/config/environment"
 require "spec_helper"
+require "dummy/config/environment"
 
 RSpec.configure do |config|
   [:controller, :view, :request].each do |type|

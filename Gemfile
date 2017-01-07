@@ -4,7 +4,7 @@ gemspec
 group :test, :development do
   gem "bundler"
   gem "rake"
-  gem "rails"
+  gem "rails", "~> 5.0"
   gem "rails-controller-testing"
   gem "rspec"
   gem "rspec-rails"

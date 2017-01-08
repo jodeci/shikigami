@@ -1,6 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "bundler/setup"
 require "shikigami/version"
 
 Gem::Specification.new do |spec|
@@ -15,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["lib/**/*", "app/**/*", "LICENSE.txt", "README.md"]
   spec.license = "MIT"
 
+  spec.add_dependency "rails", "~> 5.0"
   spec.add_dependency "activesupport", "~> 5.0"
   spec.add_dependency "kaminari", "~> 0.17"
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-require "rubygems"
+require "rails/engine"
 require "kaminari"
 module Shikigami
-  class Engine < Rails::Engine; end
+  class Engine < Rails::Engine
+  end
 end

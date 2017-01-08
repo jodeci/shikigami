@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "rails/railtie"
 require "shikigami/view_helpers"
 module Shikigami
   class Railtie < Rails::Railtie

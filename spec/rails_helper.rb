@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 require "rails/all"
-require "rspec/rails"
-require "shoulda-matchers"
 require "spec_helper"
+require "shoulda-matchers"
 require "dummy/config/environment"
+require "rspec/rails"
 
 RSpec.configure do |config|
   [:controller, :view, :request].each do |type|

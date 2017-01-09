@@ -78,5 +78,11 @@ describe ApplicationHelper, type: :helper do
         end
       end
     end
+
+    context "when all options are specified" do
+      it "should generate html with the specified data" do
+        expect(helper.bs_btn(:update, '#', method: :post, confirm: true)).to eq '<a class="btn btn-xs btn-primary" data-confirm="Are you sure?" rel="nofollow" data-method="post" href="#">修改</a>'
+      end
+    end
   end
 end

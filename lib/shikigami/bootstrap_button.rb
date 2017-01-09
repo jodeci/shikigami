@@ -13,7 +13,7 @@ module Shikigami
         class: default_class,
         method: @options[:method],
         data: confirm_message,
-      }.compact!
+      }
     end
 
     private
